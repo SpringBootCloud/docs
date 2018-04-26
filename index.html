@@ -20,7 +20,7 @@
 </style>
 
 		<meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="XUY469rWGnI9gHt8IhUC4KD3YNoRhj714QEaC8BV0Ux9gtBB9VWDMmWaURdrEaVvti+XRvlSF/oi8j2l/iiesg==" />
+<meta name="csrf-token" content="qVHz6kANbGH73b4tX6b/q/91h4Za08F7hrrW6U1q1hOJlRtAb471IaPHlEYWolgk6a1wGrIH6HRFSfFHcxeZ7Q==" />
 		<style id="user-css-output" type="text/css"></style>
 	</head>
 	<body>
@@ -147,7 +147,7 @@
 
 <p>Docker-Integration</p>
 
-<p>Paraktische Übungen</p>
+<p>Praktische Übungen</p>
 </div></div></section><section class="stack" data-id="e141e3ef3cb73203b66d36b0e282a35d"><section data-id="1f849893c55f334061858e343c6e21f5"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="60436bb1fe423051282aef8681ae451e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
 <h1>Vorbereitung</h1>
 </div></div></section><section data-id="e649e72562dd2055852782f18c5d420b"><div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 627px; height: 117px; left: 167px; top: 513px;" data-block-id="5b61e6d3c6a62be22be1ef3748a5c853"><div class="sl-block-style" style="z-index: 10; transform: rotate(360deg);"><div class="sl-block-content" style="z-index: 10;"><pre class="none"><code>git clone https://github.com/SpringBootCloud/app</code></pre></div></div></div>
@@ -1308,20 +1308,282 @@ public class Contact { /* ... */ }</code></pre></div></div></section></section><
 <div class="sl-block" data-block-type="code" style="width: 801px; height: 71px; left: 83px; top: 379px;" data-block-id="9ae0c4a48e08ca927acc5bda356da6aa"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 14;"><pre class="none"><code>
   spring.jackson.date-format=com.fasterxml.jackson.databind.util.ISO8601DateFormat</code></pre></div></div>
 
-</section></section><section data-id="bd60e6c67412d91aa68b5b5c141070da"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 193px; height: auto;" data-block-id="8d462ae3a774b074f1ffb4b9484f31d9"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
-<h2>spring-boot-starter-mail</h2>
+</section></section><section data-id="18df52701b3a672992ca7bd447380404"><div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 189px; height: auto;" data-block-id="39d87df5cc6032ce065430e371b3f58c"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Spring Boot 2 ?</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 286px; height: auto;" data-block-id="b80aed77f5a16c1e174c5d77a2c6860b"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h3><a href="https://jaxenter.de/spring-boot-2-spring-5-68265" target="_blank">https://jaxenter.de/spring-boot-2-spring-5-68265</a></h3>
+
+<h3><a href="https://jaxenter.com/spring-boot-2-0-released-141962.html" target="_blank">https://jaxenter.com/spring-boot-2-0-released-141962.html</a></h3>
+</div></div></section><section data-id="387d67ed7ed79d60ab9d2876e21de1c2"><div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 189px; height: auto;" data-block-id="8e0b8fc1f1a8805a2b05e918e9c14631"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Einschub</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 286px; height: auto;" data-block-id="a0406acb46e47392be62612dca624cd3"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 12;">
+<h3>PagingAndSortingRepositories</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 800px; height: 300px; left: 80px; top: 379px;" data-block-id="caa64c294939d75d378e726996c3af0a"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 13;"><pre class="none"><code>// Repository
+public interface ContactRepository extends PagingAndSortingRepository&lt;Contact, Long&gt; {
+
+  Page&lt;Contact&gt; findAll(Pageable pageable);
+
+}
+
+
+// Aufruf
+
+PageRequest request = new PageRequest(1,1,Sort.Direction.ASC,"firstName");
+return repository.findAll(request);
+
+</code></pre></div></div></section><section data-id="1baa5ca8596c9c2c3d77d42a86dbe0d9"><div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 72px; height: auto;" data-block-id="bd97f22b2b54555ff7283716406246b6"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Einschub</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 169px; height: auto;" data-block-id="526896e5ff15ec64540dddd96f804976"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h3>Multiple DataSources</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 800px; height: 467px; left: 80px; top: 219px;" data-block-id="13c269769d1240b676b4b9dbe8f5204d"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>@Configuration
+@EnableTransactionManagement
+@EnableJpaRepositories(
+  entityManagerFactoryRef = "entityManagerFactory",
+  basePackages = { "com.foobar.foo.repo" }
+)
+public class FooDbConfig {
+  
+  @Primary
+  @Bean(name = "dataSource")
+  @ConfigurationProperties(prefix = "spring.datasource")
+  public DataSource dataSource() {
+    return DataSourceBuilder.create().build();
+  }
+  
+  @Primary
+  @Bean(name = "entityManagerFactory")
+  public LocalContainerEntityManagerFactoryBean 
+  entityManagerFactory(
+    EntityManagerFactoryBuilder builder,
+    @Qualifier("dataSource") DataSource dataSource
+  ) {
+    return builder
+      .dataSource(dataSource)
+      .packages("com.foobar.foo.domain")
+      .persistenceUnit("foo")
+      .build();
+  }
+    
+  @Primary
+  @Bean(name = "transactionManager")
+  public PlatformTransactionManager transactionManager(
+    @Qualifier("entityManagerFactory") EntityManagerFactory 
+    entityManagerFactory
+  ) {
+    return new JpaTransactionManager(entityManagerFactory);
+  }
+}</code></pre></div></div></section><section class="stack" data-id="8c0545c301d59ad13d09fb71ff4b5fff"><section data-id="bc9e0624ad5f6b9aa4f9dcb9965a5942"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="73098d05af235b55bde9bec95000368e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-security</h2>
+</div></div></section><section data-id="45aa2ee8dde5b55ceb2055bb2b9c107f"><div class="sl-block" data-block-type="text" style="width: 860px; left: 51px; top: 177px; height: auto;" data-block-id="23133a6859b787770bf4436b6b6811b0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-security</h2>
 
 <ul>
-	<li>einfache Abstraktion des JavaMailSender Interface</li>
-	<li>wird per Autokonfiguration eingebunden</li>
-	<li>JavaMailSender Bean per DI verfügbar</li>
-	<li>per properties konfigurierbar</li>
+	<li>wenn spring-security im classpath --&gt; automatische HTTP-Basic-Absicherung aller Endpunkte</li>
 </ul>
-</div></div></section><section data-id="bc9e0624ad5f6b9aa4f9dcb9965a5942"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="73098d05af235b55bde9bec95000368e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+
+<p> </p>
+
+<ul>
+	<li>AuthenticationManager-Bean erzeugt einen User 'user' und ein zufälliges Passwort</li>
+</ul>
+
+<p> </p>
+
+<ul>
+	<li>Aktivierung von methodenbasierter Absicherung: @EnableGlobalMethodSecurity</li>
+</ul>
+</div></div></section><section data-id="2c835f85089de402c8125e688a0e01cd"><div class="sl-block" data-block-type="text" style="width: 860px; left: 51px; top: 177px; height: auto;" data-block-id="e685faf7cb64f5e6ed777ceb3c643915"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
 <h2>spring-boot-starter-security</h2>
-</div></div></section><section data-id="1824c2f8cde73482fa6ecff7f2b1b2d2"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="0bab4ea58132ac5c0fc4cc46b749202d"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+
+<ul>
+	<li>Erzeugung eines eigenen UserDetailsService</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 871px; height: 300px; left: 40px; top: 340px;" data-block-id="353ead700bdf551b94376ebc30dad5a0"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>@Bean
+public UserDetailsService userDetailsService() throws Exception {
+    InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+    manager.createUser(User.withUsername("user").password("user").roles("USER").build());
+    manager.createUser(User.withUsername("admin").password("admin").roles("USER", "ADMINISTRATOR").build());
+    return manager;
+}</code></pre></div></div></section><section data-id="ff29111b7c99f8281bcd2eeed4ec896a"><div class="sl-block" data-block-type="text" style="width: 860px; left: 51px; top: 177px; height: auto;" data-block-id="ac38a8829a58d7eb2da6eca12f8c514e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-security</h2>
+
+<ul>
+	<li>Absicherung von Methoden via @Secured-Annotation</li>
+</ul>
+</div></div></section></section><section class="stack" data-id="b8fc51bf1d1fe4783aefaf04e43eed7e"><section data-id="1824c2f8cde73482fa6ecff7f2b1b2d2"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="0bab4ea58132ac5c0fc4cc46b749202d"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
 <h2>spring-boot-starter-test</h2>
-</div></div></section><section data-id="d7c3c9e414c5363d91234395ada85a8b"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="b515df77206fcff2c88e3f4a6c4f69e1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+</div></div></section><section data-id="ec2087a4ad0c16fa31c431f6711345ea"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="05dfe2c965fc9b9ea4ae172b9b951935"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Unit Testing</h3>
+
+<ul>
+	<li>ganz einfach ohne Spring-Support</li>
+	<li>nur mit @Test Annotation</li>
+	<li>Mocking von Abhänigkeiten via Mockito</li>
+</ul>
+</div></div></section><section data-id="a44eb68d2bab3fe56c4756c7bfaa5814"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="db836c900ddf906d1bc467dbd8dcdb89"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Unit Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 621px; height: 111px; left: 169px; top: 450px;" data-block-id="a3a559f2e86797baeb81ff674010a571"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>@Before
+public void setUp() {
+    contactRepositoryMock = Mockito.mock(ContactRepository.class);
+    contactService = new ContactService(contactRepositoryMock);
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 401px;" data-block-id="6641c3044856bee268ab79b1ad9570ac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p>Mocking</p>
+</div></div></section><section data-id="52360ed060b5145f9e8d876c1edb42f1"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="32d681ad34d0d38d306c397dac92cbb8"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Unit Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 621px; height: 111px; left: 169px; top: 450px;" data-block-id="abe96e88247534de897b426906cd2a35"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="none"><code>Mockito.doAnswer(AdditionalAnswers.returnsFirstArg())
+     .when(contactRepositoryMock).save(Mockito.any(Contact.class));</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 401px;" data-block-id="0fdcecca28d587ee7f36bf20dcbf1c3f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Methoden-Stubs</p>
+</div></div></section><section data-id="225fea64d92a770527beb780a3f33010"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="41e65b931439ea2f95a17c0cb9ac6a3f"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Unit Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 621px; height: 111px; left: 169px; top: 450px;" data-block-id="89629c2fa9d1d610a326bbb4b3c932ba"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="none"><code>Assertions.assertThat(c.getFirstName()).isEqualTo("first");
+Assertions.assertThat(c.getLastName()).isEqualTo("second");</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 401px;" data-block-id="1d677dcde637c12adb11522d331974b7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Assertions</p>
+</div></div></section><section data-id="1e8e9ddba9b2cb7c9539dc36a9f6ef3d"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="2b9d6960eaddd22c40ac467e5f9b4200"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Integration Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 621px; height: 58px; left: 169px; top: 451px;" data-block-id="5083076362db4a6fd11fd7f452e0299e"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="java"><code>@RunWith(SpringRunner.class)
+public class MyIntegrationTests</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 401px;" data-block-id="4d47828f8bc9bfd2954a7459b4db8c1b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p>Testklasse</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 541px;" data-block-id="96190791a4975b636d77728288af0a39"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<ul>
+	<li>dient als Brücke zwischen Junit und den Spring-Funktionalitäten</li>
+	<li>erzeugt keinen vollständigen spring-context</li>
+</ul>
+</div></div></section><section data-id="d49f6abfbbe8e7092c9f59d6d5dfa28b"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="1b6e933272df65fe0ff960f22fe1eba8"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Integration Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 621px; height: 71px; left: 169px; top: 427px;" data-block-id="10ac9ba24fb7c0564fefd7dd81370fd7"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="java"><code>@RunWith(SpringRunner.class)
+@DataJpaTest
+public class MyIntegrationTests</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 379px;" data-block-id="9f8b203d0ce79e333103cbabe3166120"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Testen mit Spring-Data-Anbindung</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 505px;" data-block-id="1afe3d448186dc0308596ebc84b684e0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li>Konfiguration einer H2-Datenbank</li>
+	<li>Konfiguration von Hibernate, Spring-Data</li>
+	<li><em>Ausführung eines @EntityScan</em></li>
+	<li>Aktivierung vom SQL-Logging</li>
+</ul>
+</div></div></section><section data-id="12c9c722ec70a15452079b5fc3112bf9"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="aea652b10d5d7d89980006d60a8feb15"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Integration Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 621px; height: 71px; left: 169px; top: 427px;" data-block-id="d0586af475e5ec66c799d4ede967f9df"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="java"><code>@Autowired
+private TestEntityManager entityManager;</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 379px;" data-block-id="b20eefd28b127c1d4f8dcbf4570191c7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Testen mit Spring-Data-Anbindung</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 504px;" data-block-id="ef8ee2b4c3fc1c8eb02636a1094a36bb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li>TestEntitymanager kann benutzt werden um Daten vorzubereiten</li>
+	<li>bietet Methoden, die man i.A. beim Testen benötigt</li>
+</ul>
+</div></div></section><section data-id="0a7493aa461bfebea35c2364843d9d66"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="e6499859832fff003be01976d63dd882"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Integration Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 621px; height: 218px; left: 169px; top: 427px;" data-block-id="9ca15365732217cf4303f87cad47dbc9"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="java"><code>    @TestConfiguration
+    static class TestContextConfiguration {
+        @MockBean
+        private ContactRepository contactRepositoryMock;
+
+        @Bean
+        public ContactService contactService() {
+            return new ContactService(contactRepositoryMock);
+        }
+    }</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 379px;" data-block-id="0a7da64995ac8080fe411386fd300e3f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>@TestConfiguration &amp; @MockBean</p>
+</div></div></section><section data-id="5bbf820c19fd0920c80b4c826276da9c"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="a1062725922eb3a7d542bb55bc5b0077"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Controller Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 379px;" data-block-id="cbb0dce0fc7ae869252093ee1b3bdd01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<pre><span style="color:#808000">@WebMvcTest</span>(ContactController.<strong>class</strong>)</pre>
+
+<p> </p>
+
+<ul>
+	<li>erzeugt einen abgespeckten Context, in dem nur der Spring-MVC-Teil der Applikation konfiguriert und der deklarierte Controller geladen wird</li>
+</ul>
+</div></div></section><section data-id="b241d74bc5418ab95ed8319ee423d42f"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="dc5c427438350d1c2ac97df4a586cbce"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Controller Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 379px;" data-block-id="738b82ca23547782f5422b61dab539f4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<pre><span style="color:#808000">@Autowired
+</span><strong>private </strong>MockMvc <strong>mvc</strong>;</pre>
+
+<p> </p>
+
+<ul>
+	<li>Werkzeug um Requests zum Controller zu dispatchen</li>
+</ul>
+</div></div></section><section data-id="50eeba992c9f810320786e3ba4565d2f"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="f48a4d2fca68f0b24a12a16c8a7bf9cc"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Controller Testing</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 379px;" data-block-id="0df8fd59a9d1f1d76ebf5fe4b28ab3aa"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<pre><span style="color:#808000">@Autowired
+</span><strong>private </strong>MockMvc <strong>mvc</strong>;</pre>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 893px; height: 140px; left: 33px; top: 484px;" data-block-id="9642800dda57518c76112e60e8f1b4d4"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 13;"><pre class="none"><code>    mvc.perform(MockMvcRequestBuilders.get("/contacts/2"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.firstName", Matchers.is("first")));</code></pre></div></div></section><section data-id="b5f5c4282acc20173be266b1c3c622cd"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 210px; height: auto;" data-block-id="eb3836312150be44d05ff69a443f906b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+<h2>spring-boot-starter-test</h2>
+
+<h3>Integration Testing</h3>
+</div></div>
+
+<div class="sl-block" data-block-type="code" style="width: 893px; height: 191px; left: 33px; top: 368px;" data-block-id="f24ff3d72f6186debe2625923f8fcb16"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="java"><code>@RunWith(SpringRunner.class)
+@SpringBootTest
+public class CloudDemoApplicationTests {
+
+	@Test
+	public void contextLoads() {
+	}
+
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 572px;" data-block-id="3319639602a4428f9895d3d5bf993554"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li>vollständiger Context wird gestartet</li>
+	<li>Ende zu Ende Tests möglich</li>
+</ul>
+</div></div></section></section><section class="stack" data-id="08dafc854f0cd4eabb0bf4349feb2239"><section data-id="d7c3c9e414c5363d91234395ada85a8b"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="b515df77206fcff2c88e3f4a6c4f69e1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
 <h2>Konfiguration</h2>
 
 <ul>
@@ -1330,84 +1592,197 @@ public class Contact { /* ... */ }</code></pre></div></div></section></section><
 	<li>environment/application-properties files</li>
 	<li>logging-configuration</li>
 </ul>
-</div></div></section><section data-id="d1115f2e84525afe0bbb6f761d508252"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 266px; height: auto;" data-block-id="02719c3ec31681c3498191454569f875"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
-<h1>Praktische Übungen</h1>
-</div></div></section><section data-id="4bb23856f1d1493a2756568967d4c12e"><div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 267px; height: auto;" data-block-id="fce659e0199dca8d11a1690c801b8bc3"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
-<h1>Spring Cloud</h1>
+</div></div></section><section data-id="4af809e87d9ee8e9c5d08423038b3e38"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="467c5f95fb5d10a14e7427f0e7faf4b7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>Konfiguration</h2>
+
+<h3>externalized config</h3>
+
+<p> </p>
 
 <ul>
-	<li>verteilte Konfiguration</li>
-	<li>Service-Discovery</li>
-	<li>Routing</li>
-	<li>Load-Balancing</li>
-	<li>Verteiltes Messaging</li>
+	<li>Konfiguration der Applikation von außerhalb</li>
+	<li>durch
+	<ul>
+		<li>property-files</li>
+		<li>YAML files</li>
+		<li>Umgebunsvariablen</li>
+		<li>Kommandozeilen-Argumente</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="9c04a81094c985a00fdb43c4204e4b56"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="1f1568e312afb3520bf49ed4247bed97"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>Konfiguration</h2>
+
+<ul>
+	<li>Benutzung von Config-Einträgen via  @Value</li>
+	<li>Übergabe durch Kommandozeile:
+	<ul>
+		<li>
+		<pre>java -jar app.jar --my.property="Hello"</pre>
+		</li>
+	</ul>
+	</li>
+	<li>Übergabe via Umgebungsvariable:
+	<ul>
+		<li>
+		<pre class="screen" style='line-height: 1.4;  padding: 6px 10px; border-radius: 3px; clear: both; overflow: auto; font-family: Consolas, "liberation mono", Courier, monospace; margin: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; background-image: initial !important; background-position: 0px 0px !important; background-size: initial !important; background-repeat: initial !important; background-attachment: initial !important; background-origin: initial !important; background-clip: initial !important;'>SPRING_APPLICATION_JSON='{"my":{"property":"Hello"}}'</pre>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div></section><section data-id="0729e8f92874678b409c6a56ffa89daf"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="e23b999f7879bc2137332bccbd792562"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+<h2>Konfiguration</h2>
+
+<h3>random</h3>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 500px; height: 181px; left: 231px; top: 409px;" data-block-id="1766ae57c0ac79bf0b259bb7070ddcfd"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>my.secret=${random.value}
+my.number=${random.int}
+my.bignumber=${random.long}
+my.uuid=${random.uuid}
+my.number.less.than.ten=${random.int(10)}
+my.number.in.range=${random.int[1024,65536]}</code></pre></div></div></section><section data-id="4aea3bd78a4a6142422ce69cd7a603a2"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="40239d35500a196a69675b2927c6e777"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>Konfiguration</h2>
+
+<h3>Profil-spezifische Config-Files</h3>
+
+<p> </p>
+
+<pre style="text-align: center;">application-{profile}.properties</pre>
+</div></div></section><section data-id="2b42d7d095716aca805de5775a3202be"><div class="sl-block" data-block-type="text" style="width: 885px; left: 37px; top: 231px; height: auto;" data-block-id="7a4373dd00f6d1ea5a8fd049ae0cc16b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="" dir="ui">
+<h2>Konfiguration</h2>
+
+<h3>typsichere Konfiguration</h3>
+
+<p> </p>
+
+<pre style="text-align: center;">@ConfigurationProperties(prefix = "my")</pre>
+</div></div></section></section><section data-id="bd60e6c67412d91aa68b5b5c141070da"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 193px; height: auto;" data-block-id="8d462ae3a774b074f1ffb4b9484f31d9"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-mail</h2>
+
+<ul>
+	<li>einfache Abstraktion des JavaMailSender Interface</li>
+	<li>wird per Autokonfiguration eingebunden</li>
+	<li>JavaMailSender Bean per DI verfügbar</li>
+	<li>per properties konfigurierbar</li>
+</ul>
+</div></div></section><section class="stack" data-id="4b98b49543a41c654cdcd649bd7a70d7"><section data-id="a6565afe6fb1b771a41230c6ece11590"><div class="sl-block" data-block-type="text" style="width: 870px; left: 45px; top: 231px; height: auto;" data-block-id="869e32ddd358addade26644bd631c782"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+<h2>spring-boot-starter-actuator</h2>
+
+<ul>
+	<li>Endpunkte für Monitoring und Verwaltung</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 627px; height: 123px; left: 160px; top: 408px;" data-block-id="905ce7410d7b3f4c9faf6a15f8b34dde"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="xml"><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre></div></div></section><section data-id="0a37d02da0419f26d69a4079334bc2bf"><div class="sl-block" data-block-type="text" style="width: 870px; left: 45px; top: 231px; height: auto;" data-block-id="3992a17386d4d0d5d82d939d1eed73e3"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="">
+<h2>spring-boot-starter-actuator</h2>
+
+<h3><a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints" target="_blank">Endpunkte</a></h3>
+
+<p> </p>
+
+<ul>
+	<li>/health</li>
+	<li>/metrics</li>
+	<li>/mappings</li>
 	<li>...</li>
 </ul>
-</div></div></section><section data-id="fc4eae2de735ee2ae6eb1d127326aede"><div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 267px; height: auto;" data-block-id="a9d1474a0bbd8c954f9a3549caa60fff"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
-<h2>spring-cloud-config</h2>
-</div></div></section><section data-id="efd61b191e3d5f11438241d98aabf30d"><div class="sl-block" data-block-type="text" style="width: 805px; left: 77px; top: 267px; height: auto;" data-block-id="8d0a0ed8a3e976a26c8f6c981e40a0df"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
-<h2>spring-cloud-netflix</h2>
-</div></div></section><section class="stack" data-id="9b7d1c09e9ef7744540b3561f4c1b3c7"><section data-id="ec8f6390c0d51c0143a2d062e1dfd279"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="527650fc6080614fb1099939c35b730b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
-<h1>Service Discovery</h1>
+
+<p> </p>
+</div></div></section><section data-id="a53699354e8d4560b864406840117144"><div class="sl-block" data-block-type="text" style="width: 870px; left: 45px; top: 231px; height: auto;" data-block-id="d5953ca5c073adf4fa132f7ccff4aaf1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="" dir="ui">
+<h2>spring-boot-starter-actuator</h2>
+
+<h3>eigene Health-Endpunkte</h3>
+
+<p> </p>
+
+<p> </p>
 </div></div>
-<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 286px; height: auto;" data-block-id="0ec6831e5032254e636c47e12037092a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
-<h2>3 ways to discover</h2>
-</div></div></section><section data-id="be8e22cc39b9a802b8bb76dab49bde38"><div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 807px; height: 490px; left: 80px; top: 70px;" data-block-id="82df0a8556b08095d08009cc8ea2411f"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="java"><code>public class DiscoveryController {
-    private final DiscoveryClient discoveryClient;
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 500px; height: 217px; left: 230px; top: 414px;" data-block-id="0a3e02a0d6a71a8d053cbbaf317d3288"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>@Component
+public class PostsHealth implements HealthIndicator {
 
-    @Autowired
-    public DiscoveryController(DiscoveryClient discoveryClient) {
-        this.discoveryClient = discoveryClient;
-    }
+...
 
-    @RequestMapping("/list")
-    public List&lt;MicroService&gt; getDiscoveryClients() {
-        // ...
-        discoveryClient.getServices().forEach(s -&gt; {
-            // ...
-            discoveryClient.getInstances(s).stream()
-                    .map(inst -&gt; (EurekaDiscoveryClient.EurekaServiceInstance) inst)
-                    .forEach(inst -&gt; {
-                        // ...
-                    });
-            // ...
-        });
-        return result;
-    }
-}</code></pre></div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 591px;" data-block-id="c25689f1cc523fb0326bf8dbabeed861"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-has-custom-html="">
-<p>via <a href="https://github.com/SpringBootMicroservices/full-app/blob/master/api-gateway/src/main/java/net/autorisiert/micro/apigateway/controller/DiscoveryController.java" target="_blank">DiscoveryClient</a></p>
-</div></div></section><section data-id="7f258dbe862c811f6b9720b8c4a3620e"><div class="sl-block" data-block-type="code" style="width: 807px; height: 140px; left: 80px; top: 210px;" data-block-id="ee30369dcba770207cb58b256f26096b"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 10;"><pre class="java"><code>
-@FeignClient(name = "booking-service")
-public interface BookingClient {
-    @RequestMapping("/booking/{id}")
-    String DoBooking(@PathVariable("id") String eventId);
-}
-</code></pre></div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 591px;" data-block-id="2d434b4bc78b2333eb88c7d9673e4905"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
-<p>via <a href="https://github.com/SpringBootMicroservices/full-app/blob/master/api-gateway/src/main/java/net/autorisiert/micro/apigateway/client/BookingClient.java" target="_blank">FeignClient</a></p>
-</div></div></section><section data-id="58f47d9e892eba9ac2ef77ef48b3e3df"><div class="sl-block" data-block-type="code" style="width: 807px; height: 490px; left: 80px; top: 70px;" data-block-id="8ef7173217a9c68e0e8c286f2e98c3c3"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 10;"><pre class="java"><code>@RestController
-public class BookingController {
+return Health.down().withDetail(...).build();</code></pre></div></div></section><section data-id="038e70b5e791383f34820dc8723809fe"><div class="sl-block" data-block-type="text" style="width: 870px; left: 45px; top: 231px; height: auto;" data-block-id="51e1913e0b157f32959d8c31f8372835"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;" data-has-custom-html="" dir="ui">
+<h2>spring-boot-starter-actuator</h2>
 
-    private final RestTemplate restTemplate;
+<h3>eigene Metrics</h3>
 
-    @Autowired
-    public BookingController(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
+<p> </p>
 
-    @RequestMapping("/booking/{id}")
-    public String DoBooking(@PathVariable("id") String eventId){
-        ResponseEntity&lt;String&gt; response = this.restTemplate
-                .postForEntity("http://event-service/allocateTicket", eventId, String.class);
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 500px; height: 217px; left: 230px; top: 414px;" data-block-id="067d23de119c50ec8b25d34226198c1f"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="none"><code>@Autowired
+private CounterService counterService;
 
-        return response.getBody();
-    }
-}
-</code></pre></div></div>
-<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 591px;" data-block-id="dff43d2d22e8c939f134a7c0c90f8dab"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
-<p>via <a href="https://github.com/SpringBootMicroservices/full-app/blob/master/booking-service/src/main/java/net/autorisiert/bookingservice/controller/BookingController.java" target="_blank">RestTemplate</a></p>
-</div></div></section></section><section class="stack" data-id="ec38c3e77bf1a8c7d653e5e750301483"><section data-id="e732fa68552378e1a53cd63c30a5cfcd"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 191px; height: auto;" data-block-id="86199731ed4dff129a7931b42c02b446"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
+// ...
+
+counterService.increment("custom.metric.name")</code></pre></div></div></section></section><section class="stack" data-id="7af47a1c899ab7ac5ab043e838fe947f"><section data-id="6f322cdd36d85ec7735206a254ade11e"><div class="sl-block" data-block-type="text" style="width: 808px; left: 76px; top: 68px; height: auto;" data-block-id="8fa17b12a3ea17b875b8244bd966e234"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Einschub</h2>
+
+<p>Absicherung von Repositories + EventHandler</p>
+
+<p> </p>
+
+<ul>
+	<li>Auf Methodenebene via @PreAuthorize</li>
+	<li>via <span style="color:rgb(128, 128, 128); text-align:left">@RepositoryEventHandler</span>
+</li>
+</ul>
+</div></div>
+
+
+
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 683px; height: 300px; left: 176px; top: 356px;" data-block-id="d61414f69317192b8b4b1f8220b92df9"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>@RepositoryEventHandler(User.class)
+public class PersonEventHandler {
+
+  @HandleBeforeSave public void handleBeforeSave(User u) {
+    ...
+  }
+
+  @HandleAfterDelete public void handleAfterDelete(User u) {
+    ...
+  }
+
+}</code></pre></div></div></section><section data-id="b439d00342a1d4b780fdbb2b9f990e80"><div class="sl-block" data-block-type="text" style="width: 808px; left: 76px; top: 68px; height: auto;" data-block-id="230ab71153c7144b0a3400c84f981003"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;" dir="ui">
+<h2>Einschub</h2>
+
+<p>Events für den EventHandler</p>
+
+<p> </p>
+
+<ul>
+	<li>
+	<p>BeforeCreateEvent</p>
+	</li>
+	<li>
+	<p>AfterCreateEvent</p>
+	</li>
+	<li>
+	<p>BeforeSaveEvent</p>
+	</li>
+	<li>
+	<p>AfterSaveEvent</p>
+	</li>
+	<li>
+	<p>BeforeLinkSaveEvent</p>
+	</li>
+	<li>
+	<p>AfterLinkSaveEvent</p>
+	</li>
+	<li>
+	<p>BeforeDeleteEvent</p>
+	</li>
+	<li>
+	<p>AfterDeleteEvent</p>
+	</li>
+</ul>
+</div></div>
+
+
+
+</section></section><section class="stack" data-id="018cf18e11c67c0b1521230e6d7bd6be"><section data-id="e732fa68552378e1a53cd63c30a5cfcd"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 191px; height: auto;" data-block-id="86199731ed4dff129a7931b42c02b446"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-has-custom-html="">
 <h1>Hypermedia Support</h1>
 
 <p>mit HATEOAS</p>
@@ -1477,7 +1852,82 @@ public class RootResourceProcessor implements ResourceProcessor&lt;RepositoryLin
         return resource;
     }
 }
-</code></pre></div></div></section></section><section class="stack" data-id="d8c18a00d1ca9b51bc10ecdb62c3c965"><section data-id="1bc9586c4e729ba1882442f8c4c762ed"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="26760cce16919165fe660779eeb099ef"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+</code></pre></div></div></section></section><section class="stack" data-id="89edbf7491a02ef58d3b4b48ad997a59"><section data-id="fc4eae2de735ee2ae6eb1d127326aede"><div class="sl-block" data-block-type="text" style="width: 805px; left: 80px; top: 103px; height: auto;" data-block-id="a9d1474a0bbd8c954f9a3549caa60fff"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h2>Spring Cloud</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 769px; height: 176px; left: 98px; top: 235px;" data-block-id="f4d34f3955e4ca71bbdfa942f78cba42"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 12;"><pre class="none"><code>git clone https://github.com/SpringBootMicroservices/config.git
+
+git clone https://github.com/SpringBootMicroservices/full-app.git
+cd full-app
+mvnw clean install
+cd api-gateway/booking-app
+npm install</code></pre></div></div></section><section data-id="11be010b17ef4b15a174e373662d94d5"><div class="sl-block" data-block-type="text" style="width: 805px; left: 80px; top: 31px; height: auto;" data-block-id="fb228d9415cd7d88b45a9c3ea6eba74e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Spring Cloud</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 839px; left: 63px; top: 156px; height: auto;" data-block-id="88babd5adfe6ef9020f205452187ef24"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 12;">
+<h2>Architektur der Beispiel-App</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 663px; height: 472px; left: 152px; top: 228px;" data-block-id="509d966e6dedbdab02964177bf5d4ef9"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1700" data-natural-height="1210" data-src="https://raw.githubusercontent.com/SpringBootMicroservices/docs/master/architecture_01.png"></div></div></section></section><section class="stack" data-id="9b7d1c09e9ef7744540b3561f4c1b3c7"><section data-id="ec8f6390c0d51c0143a2d062e1dfd279"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="527650fc6080614fb1099939c35b730b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Service Discovery</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 286px; height: auto;" data-block-id="0ec6831e5032254e636c47e12037092a"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
+<h2>3 ways to discover</h2>
+</div></div></section><section data-id="be8e22cc39b9a802b8bb76dab49bde38"><div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 807px; height: 490px; left: 80px; top: 70px;" data-block-id="82df0a8556b08095d08009cc8ea2411f"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 11;"><pre class="java"><code>public class DiscoveryController {
+    private final DiscoveryClient discoveryClient;
+
+    @Autowired
+    public DiscoveryController(DiscoveryClient discoveryClient) {
+        this.discoveryClient = discoveryClient;
+    }
+
+    @RequestMapping("/list")
+    public List&lt;MicroService&gt; getDiscoveryClients() {
+        // ...
+        discoveryClient.getServices().forEach(s -&gt; {
+            // ...
+            discoveryClient.getInstances(s).stream()
+                    .map(inst -&gt; (EurekaDiscoveryClient.EurekaServiceInstance) inst)
+                    .forEach(inst -&gt; {
+                        // ...
+                    });
+            // ...
+        });
+        return result;
+    }
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 591px;" data-block-id="c25689f1cc523fb0326bf8dbabeed861"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-has-custom-html="">
+<p>via <a href="https://github.com/SpringBootMicroservices/full-app/blob/master/api-gateway/src/main/java/net/autorisiert/micro/apigateway/controller/DiscoveryController.java" target="_blank">DiscoveryClient</a></p>
+</div></div></section><section data-id="7f258dbe862c811f6b9720b8c4a3620e"><div class="sl-block" data-block-type="code" style="width: 807px; height: 140px; left: 80px; top: 210px;" data-block-id="ee30369dcba770207cb58b256f26096b"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 10;"><pre class="java"><code>
+@FeignClient(name = "booking-service")
+public interface BookingClient {
+    @RequestMapping("/booking/{id}")
+    String DoBooking(@PathVariable("id") String eventId);
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 591px;" data-block-id="2d434b4bc78b2333eb88c7d9673e4905"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
+<p>via <a href="https://github.com/SpringBootMicroservices/full-app/blob/master/api-gateway/src/main/java/net/autorisiert/micro/apigateway/client/BookingClient.java" target="_blank">FeignClient</a></p>
+</div></div></section><section data-id="58f47d9e892eba9ac2ef77ef48b3e3df"><div class="sl-block" data-block-type="code" style="width: 807px; height: 490px; left: 80px; top: 70px;" data-block-id="8ef7173217a9c68e0e8c286f2e98c3c3"><div class="sl-block-content" data-highlight-theme="zenburn" style="z-index: 10;"><pre class="java"><code>@RestController
+public class BookingController {
+
+    private final RestTemplate restTemplate;
+
+    @Autowired
+    public BookingController(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    @RequestMapping("/booking/{id}")
+    public String DoBooking(@PathVariable("id") String eventId){
+        ResponseEntity&lt;String&gt; response = this.restTemplate
+                .postForEntity("http://event-service/allocateTicket", eventId, String.class);
+
+        return response.getBody();
+    }
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 591px;" data-block-id="dff43d2d22e8c939f134a7c0c90f8dab"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
+<p>via <a href="https://github.com/SpringBootMicroservices/full-app/blob/master/booking-service/src/main/java/net/autorisiert/bookingservice/controller/BookingController.java" target="_blank">RestTemplate</a></p>
+</div></div></section></section><section class="stack" data-id="d8c18a00d1ca9b51bc10ecdb62c3c965"><section data-id="1bc9586c4e729ba1882442f8c4c762ed"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 189px; height: auto;" data-block-id="26760cce16919165fe660779eeb099ef"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
 <h1>Docker Integration</h1>
 </div></div>
 <div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 286px; height: auto;" data-block-id="c3a1c2494ed0abc228199efde216f119"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle" style="z-index: 11;">
@@ -1537,7 +1987,7 @@ EXPOSE 8080</code></pre></div></div>
 
 		
 <script>
-	var SLConfig = {"current_user":{"id":802924,"username":"mikeboddin","name":"Mike Boddin","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":654258,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null,"editor_grid":true,"editor_snap":true,"developer_mode":true,"speaker_layout":"default","phone_number":null,"phone_country_code":null,"media_sources":null},"email":"mike.boddin@gmail.com","notify_on_receipt":true,"billing_address":null,"billing_vat_id":null,"editor_tutorial_completed":true,"manually_upgraded":false,"deck_user_editor_limit":1,"storage_used":194112,"storage_limit":262144000},"deck":{"id":1151783,"slug":"spring-boot-cloud","title":"Spring Boot und Spring Cloud","description":"","width":960,"height":700,"visibility":"all","published_at":"2018-01-10T20:11:00.950Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/2ae092571d974c296697e745d5529097/thumb.jpg?1517429810","view_count":2,"user":{"id":802924,"username":"mikeboddin","name":"Mike Boddin","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":654258,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"silver-green","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":121,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1524602317003,"font_typekit":null,"font_google":null,"notes":{"e05b0df3f9038b0c23f0ac59072398e9":"endpoints.sensitive=false\nendpoints.health.sensitive=false","d5466111f71c5afff41970191700f3a0":"vgl. mit Postman-Projekt"}},"user":{"id":802924,"username":"mikeboddin","name":"Mike Boddin","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":654258,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}}};
+	var SLConfig = {"current_user":{"id":802924,"username":"mikeboddin","name":"Mike Boddin","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":654258,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null,"editor_grid":true,"editor_snap":true,"developer_mode":true,"speaker_layout":"default","phone_number":null,"phone_country_code":null,"media_sources":null},"email":"mike.boddin@gmail.com","notify_on_receipt":true,"billing_address":null,"billing_vat_id":null,"editor_tutorial_completed":true,"manually_upgraded":false,"deck_user_editor_limit":1,"storage_used":194112,"storage_limit":262144000},"deck":{"id":1151783,"slug":"spring-boot-cloud","title":"Spring Boot und Spring Cloud","description":"","width":960,"height":700,"visibility":"all","published_at":"2018-01-10T20:11:00.950Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/2ae092571d974c296697e745d5529097/thumb.jpg?1517429810","view_count":2,"user":{"id":802924,"username":"mikeboddin","name":"Mike Boddin","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":654258,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"silver-green","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":154,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":1,"data_updated_at":1524773310746,"font_typekit":null,"font_google":null,"notes":{"e05b0df3f9038b0c23f0ac59072398e9":"endpoints.sensitive=false\nendpoints.health.sensitive=false","d5466111f71c5afff41970191700f3a0":"vgl. mit Postman-Projekt"}},"user":{"id":802924,"username":"mikeboddin","name":"Mike Boddin","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":654258,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null}}};
 </script>
 
 		<script>
